@@ -294,7 +294,34 @@ The file will have its original line endings in your working directory.
    --hard #在本地库修改指针，重置暂存区和工作区
    ~~~
 
-3. 
+3. 文件永久删除后找回
+
+   ~~~shell
+   #就是通过版本回溯，--hard模式，使删除的文件回来
+   #删除前 文件的状态就是必须提交到本地库
+   #新增一个文件 文件的状态就是必须提交到本地库
+   6098d38 (HEAD -> master) HEAD@{0}: commit: 测试文件
+   1803d22 HEAD@{1}: commit: Change md
+   a988b78 HEAD@{2}: commit: new Image
+   6e99183 HEAD@{3}: commit: new Image
+   .....
+   #删除文件 
+   4d2111d (HEAD -> master) HEAD@{0}: commit: delete test.txt
+   6098d38 HEAD@{1}: commit: 测试文件
+   1803d22 HEAD@{2}: commit: Change md
+   a988b78 HEAD@{3}: commit: new Image
+   6e99183 HEAD@{4}: commit: new Image
+   ......
+   #然后使用  git  reset --hard 6098d38 回到未删除的版本，进行修改后
+   05cb462 (HEAD -> master) HEAD@{0}: commit: 修改测试文件
+   6098d38 HEAD@{1}: reset: moving to 6098d38
+   4d2111d HEAD@{2}: commit: delete test.txt
+   6098d38 HEAD@{3}: commit: 测试文件
+   ~~~
+
+   
+
+   
 
 
 
