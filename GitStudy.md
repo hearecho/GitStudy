@@ -175,9 +175,66 @@ The file will have its original line endings in your working directory.
 
 ##### 6.3.5 尝试修改文件文件后，执行上述的命令
 
+1. 修改文件后执行  git status
 
+   ~~~shell
+   #结果  综合来说 就是修改的文件已经被追踪了，新添加的文件未被跟踪
+   On branch master
+   Changes not staged for commit:
+     (use "git add <file>..." to update what will be committed)
+     (use "git checkout -- <file>..." to discard changes in working directory)
+   
+           modified:   GitStudy.md
+   
+   Untracked files:
+     (use "git add <file>..." to include in what will be committed)
+   
+           img/gitstatus_change.PNG
+   
+   no changes added to commit (use "git add" and/or "git commit -a")
+   #由于 修改过的文件夹 是已经被跟踪的文件 所以不会有 No commits yet
+   #git add 这次命令是更新操作 而不是 添加操作
+   #最后一行表示  可以直接 使用 commit 。或者还是按照原来的使用 git add  和 git commit
+   ~~~
 
+   ![](img/gitstatusChange.png)
 
+2. 执行  git add  之后执行 git status 查看仓库状态
+
+   ~~~shell
+   #结果
+   On branch master
+   Changes to be committed:
+     (use "git reset HEAD <file>..." to unstage)
+   
+           modified:   GitStudy.md
+           new file:   img/gitstatusChange.PNG
+   #两个文件明显的前缀对比，修改文件 是nodfied 新增文件就是 new file
+   #括号里面的内容 就是用于回调版本 用到的命令
+   ~~~
+
+   ![](img/gitaddChange.png)
+
+3. 执行git commit 之后，执行git status 查看仓库状态
+
+   ~~~shell
+   #结果
+   #执行git commit 之后
+   warning: LF will be replaced by CRLF in GitStudy.md.
+   The file will have its original line endings in your working directory.
+   [master 5d12dd3] Test Change cmmond
+    2 files changed, 142 insertions(+), 55 deletions(-)
+    create mode 100644 img/gitstatusChange.PNG
+   #执行git status 查看仓库状态
+   On branch master
+   nothing to commit, working tree clean
+   #新建的文件 会 create mode 100644 和前面的一样
+   #修改的文件 不会create  因为已经创建
+   ~~~
+
+   ![](img/gitcommitChange.png)
+
+   
 
 
 
