@@ -319,19 +319,24 @@ The file will have its original line endings in your working directory.
    6098d38 HEAD@{3}: commit: 测试文件
    ~~~
 
-##### 6.3.7 文件比较操作 git diff \<文件名>
+##### 6.3.7 文件比较操作 git diff \<文件名> 不加文件名比较多个文件
 
 1. 和暂存区进行比较 （默认）
 
    ~~~shell
    git diff GitStudy.md
+   #红色删除 绿色新增
    ~~~
 
-   
+   ![](img/gitdiff1.png)
 
-   
+2. 和本地库进行比较
+
+   ~~~shell
+   git diff [本地库历史版本] <file>
+   ~~~
 
 
 
-
+#### 6.4 Git分支
 
