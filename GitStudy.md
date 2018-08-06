@@ -1,4 +1,4 @@
-# Git&GitHub
+# [Git&GitHub](https://git-scm.com/book/zh/v2)
 
 > Git：分布式版本控制系统
 
@@ -69,11 +69,11 @@
 >      - git config user.name echo
 >      - git config user.email example@example.com
 >      - 信息保存位置  .git/config
->  	2. 系统用户级别：登陆当前操作系统的用户
+> 		2. 系统用户级别：登陆当前操作系统的用户
 >      - git config --global user.name echo
 >      - git config --global user.email example@example.com
 >      - 信息保存位置 ~/gitconfig
->  	3. 就近原则，项目级别优先。不能都不存在。
+> 		3. 就近原则，项目级别优先。不能都不存在。
 
 #### 6.3本地库操作命令：
 
@@ -169,6 +169,7 @@ The file will have its original line endings in your working directory.
 #master (root-commit)  master代表是主干 root-commit 表示是第一次提交 后面的提交就不会有了
 #9bedc0a  此次提交的 id 标志
 #Git命令行操作 -m 后面添加的此次提交的解释信息
+#我们提交完了才发现漏掉了几个文件没有添加，或者提交信息写错了。 此时，可以运行带有 --amend 选项的提交命令尝试重新提交：git commit --amend
 ~~~
 
 ![](img/gitcommit.png)
@@ -234,7 +235,68 @@ The file will have its original line endings in your working directory.
 
    ![](img/gitcommitChange.png)
 
+
+##### 6.3.6 版本穿梭指令
+
+1. git log 查看提交记录  commit记录
+
+   ~~~shell
+   #参数
+   1. --pretty = oneline or --oneline 
+   #每一天记录显示一行
+   a988b78 (HEAD -> master) new Image
+   6e99183 new Image
+   5d12dd3 Test Change cmmond
+   f96580b 新增图片
+   9bedc0a Git命令行操作
+   2. git relfog 
+   #显示HEAD指针移动几步到其他版本
+   a988b78 (HEAD -> master) HEAD@{0}: commit: new Image
+   6e99183 HEAD@{1}: commit: new Image
+   5d12dd3 HEAD@{2}: commit: Test Change cmmond
+   f96580b HEAD@{3}: commit: 新增图片
+   9bedc0a HEAD@{4}: commit (initial): Git命令行操作
+   #一般结果
+   commit 6e991837aec21bdf4e5fe93a719f393972009b87 (HEAD -> master)
+   Author: echo <1540302560@qq.com>
+   Date:   Mon Aug 6 16:00:56 2018 +0800
    
+       new Image
+   
+   commit 5d12dd33dfb009ada5eaee38e00669a61e8aa667
+   Author: echo <1540302560@qq.com>
+   Date:   Mon Aug 6 15:53:42 2018 +0800
+   
+       Test Change cmmond
+   
+   .....
+   #格式
+   #commit  + 此次提交的Hash值(是一个这一次提交索引) + (HEAD->master)  HEAD 是一个指针 移动HEAD来改变指向版本
+   #Author  + 签名
+   #Date + 提交日期
+   #提交时期添加的注释
+   ~~~
+
+   ![](img/gitlog.png)
+
+2. 版本前进后退（不做演示）
+
+   ~~~shell
+   #最好先使用 git reflog 显示索引值
+   #使用git reset --hard + 局部索引值命令 不用关心是前进还是后退，只需要知道你要转到的当时的那个版本的 索引值就可以了
+   git reset --hard + 局部索引值(6e99183)不用全部
+   #使用^符号  只能后退不能前进 一个^后退一个版本
+   git reset --hard HEAD^^^ #后退三个版本，
+   git reset --hard HEAD~3  #后退三个版本，只能后退
+   #参数
+   --soft #仅仅在本地库修改指针
+   --mixed #在本地库修改指针，重置暂存区
+   --hard #在本地库修改指针，重置暂存区和工作区
+   ~~~
+
+3. 
+
+
 
 
 
