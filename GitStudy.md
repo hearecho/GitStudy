@@ -338,5 +338,43 @@ The file will have its original line endings in your working directory.
 
 
 
-#### 6.4 Git分支
+#### 6.4 [Git分支](https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%88%86%E6%94%AF%E7%AE%80%E4%BB%8B)
+
+##### 6.4.1 介绍
+
+> 在版本控制过程中，使用多条线推进多个任务，提高开发效率
+>
+> 1. 创建分支，使其它任务在其他分支进行推进。
+> 2. 当分支任务经过多次迭代完成之后，合并到主干分支，然后可以选择删除该分支。
+> 3. 合并过程可能会出现同一个文件被多个分支在同一个地方进行了修改，而且不相同，所以应该使这些文件相同之后合并分支。
+> 4. 热修复 hot_fix 使线上应用不停止修复一些bug
+
+![](img/分支.png)
+
+
+
+##### 6.4.2 命令
+
+1. 创建分支。 git branch (分支名字)
+
+2. 查看当前的所有分支。git branch -v
+
+   ~~~shell
+    hot_fix be4a622  new Image
+   * master  be4a622  new Image
+   # * 表示当前所在的分支 绿颜色
+   #后面参数表明： 此时两个分支在同一个进度
+   ~~~
+
+![](img/gitbranch-v.png)
+
+3. 切换分支。 git checkout (分支名)
+
+   ~~~shell
+   
+   ~~~
+
+   
+
+
 
