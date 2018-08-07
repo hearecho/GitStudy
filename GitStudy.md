@@ -439,5 +439,12 @@ origin  https://github.com/hearecho/GitStudy.git (push)
 git push orgin master
 ~~~
 
+##### 7.1.3克隆
+
+~~~shell
+git clone + 远程仓库地址
+#克隆下来之后 是一个文件夹，文件夹内部也是一个项目环境
+~~~
+
 
 
