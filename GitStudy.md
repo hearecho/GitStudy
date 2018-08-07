@@ -371,7 +371,39 @@ The file will have its original line endings in your working directory.
 3. 切换分支。 git checkout (分支名)
 
    ~~~shell
-   
+   #切换到 hot_fix 分支
+   Switched to branch 'hot_fix'
+   #在 hot_fix 分支提交新的进度，此时查看分支状态就会发现此时的进度已经不一样了
+   * hot_fix 4def57d Change on branch hot_fix
+     master  be4a622  new Image
+   ~~~
+
+   ![](img/gitcheckout.png)
+
+   ![](img/gitcheckout1.png)
+
+4. 合并分支。 git merge (分支名)
+
+   ~~~shell
+   #执行合并分支命令前，先把分支切换到主分支上，然后在执行合并分支的命令
+   Updating be4a622..4def57d
+   Fast-forward
+    GitStudy.md         |  40 +++++++++++++++++++++++++++++++++++++++-
+    img/gitbranch-v.PNG | Bin 0 -> 7462 bytes
+    2 files changed, 39 insertions(+), 1 deletion(-)
+    create mode 100644 img/gitbranch-v.PNG
+   #查看分支状态
+    hot_fix 4def57d Change on branch hot_fix
+   * master  4def57d Change on branch hot_fix
+   ~~~
+
+   ![](img/gitmerge.png)
+
+5. 删除分支 git branch -d (分支名)
+
+   ~~~shell
+   $ git branch -d hot_fix
+   Deleted branch hot_fix (was 4def57d).
    ~~~
 
    
