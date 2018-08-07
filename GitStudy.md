@@ -406,7 +406,38 @@ The file will have its original line endings in your working directory.
    Deleted branch hot_fix (was 4def57d).
    ~~~
 
-   
+6. 冲突解决
+
+   1. 合并时如果有冲突会进入特殊状态，此时冲突文件里面会产生一些特殊符号
+   2. 解决冲突，就是先删除特殊符号，特殊符号是为了确认位置。
+   3. 编辑文件到自己满意的程度
+   4. git add 文件名
+   5. git commit -m 信息 注意：不能加文件名
+
+### 7.和github交互
+
+#### 7.1命令交互
+
+##### 7.1.1 创建本地远程库别名
+
+~~~shell
+#查看远程库别名
+git remote -v
+#创建远程库别名
+git remote add + 别名 +仓库地址
+git remote add origin https://github.com/hearecho/GitStudy.git
+#orgin  就是别名
+$ git remote -v
+origin  https://github.com/hearecho/GitStudy.git (fetch)
+origin  https://github.com/hearecho/GitStudy.git (push)
+#push 推送 fetch 拉取
+~~~
+
+##### 7.1.2推送
+
+~~~shell
+git push orgin master
+~~~
 
 
 
